@@ -1,0 +1,4 @@
+route: {receiver: runbook-bot, group_wait: 10s}
+receivers:
+  - name: runbook-bot
+    webhook_configs: [{url: "http://bot:8000/webhook", send_resolved: false}]
