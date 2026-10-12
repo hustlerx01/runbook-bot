@@ -1,0 +1,5 @@
+HostDiskFull: runbook=yes steps=3 findings=0 -> results/postmortem_HostDiskFull_web-01_9100.md
+HostHighLoad: runbook=yes steps=3 findings=0 -> results/postmortem_HostHighLoad_web-01_9100.md
+HostOutOfMemory: runbook=yes steps=3 findings=0 -> results/postmortem_HostOutOfMemory_db-01_9100.md
+ServiceDown: runbook=yes steps=2 findings=0 -> results/postmortem_ServiceDown_api-01_8080.md
+CertExpiry: runbook=no steps=0 findings=0 -> results/postmortem_CertExpiry_lb-01.md
