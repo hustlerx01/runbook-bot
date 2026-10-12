@@ -1,0 +1,7 @@
+{"version":"4","status":"firing","receiver":"runbook-bot","alerts":[
+ {"status":"firing","labels":{"alertname":"HostDiskFull","severity":"critical","instance":"web-01:9100","mountpoint":"/"},"annotations":{"summary":"Disk usage on / above 85%"},"startsAt":"2026-10-11T09:55:00Z"},
+ {"status":"firing","labels":{"alertname":"HostHighLoad","severity":"warning","instance":"web-01:9100"},"annotations":{"summary":"Load average high"},"startsAt":"2026-10-11T09:57:00Z"},
+ {"status":"firing","labels":{"alertname":"HostOutOfMemory","severity":"warning","instance":"db-01:9100"},"annotations":{"summary":"Memory pressure"},"startsAt":"2026-10-11T09:58:00Z"},
+ {"status":"firing","labels":{"alertname":"ServiceDown","severity":"critical","instance":"api-01:8080"},"annotations":{"summary":"api port 8080 down"},"startsAt":"2026-10-11T10:00:00Z"},
+ {"status":"firing","labels":{"alertname":"CertExpiry","severity":"info","instance":"lb-01"},"annotations":{"summary":"TLS cert expires in 10d"},"startsAt":"2026-10-11T10:01:00Z"}
+]}

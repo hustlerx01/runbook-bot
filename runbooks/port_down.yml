@@ -1,0 +1,9 @@
+alertname: ServiceDown
+title: "RB-004 Service port not listening"
+diagnostics:
+  - name: Listening sockets
+    run: "ss -ltn"
+  - name: Kernel
+    run: "uname -a"
+remediation:
+  - "systemctl status <svc>; journalctl -u <svc> -n 100"

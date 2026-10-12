@@ -1,0 +1,13 @@
+alertname: HostHighLoad
+title: "RB-002 High CPU load"
+diagnostics:
+  - name: Load average
+    run: "cat /proc/loadavg"
+    detect: {regex: '^(\d+\.\d+)', threshold: 4.0, message: "1-min load {value} >= 4.0"}
+  - name: CPU count
+    run: "nproc"
+  - name: Top processes by CPU
+    run: "ps -eo pid,comm,%cpu,%mem --sort=-%cpu"
+remediation:
+  - "Compare load to nproc; load/nproc > 1 means saturation"
+  - "Identify runaway PID above; restart owning service, don't kill -9 blindly"

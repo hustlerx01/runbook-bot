@@ -1,0 +1,15 @@
+alertname: HostDiskFull
+title: "RB-001 Disk usage high"
+diagnostics:
+  - name: Filesystem usage
+    run: "df -h {mountpoint}"
+    detect: {regex: '(\d+)%', threshold: 85, message: "Filesystem at {value:.0f}% (>=85%)"}
+  - name: Inodes
+    run: "df -i {mountpoint}"
+    detect: {regex: '(\d+)%', threshold: 90, message: "Inodes at {value:.0f}%"}
+  - name: Largest dirs under /var/log
+    run: "du -sh /var/log"
+remediation:
+  - "Rotate/compress logs: logrotate -f /etc/logrotate.conf"
+  - "Clear package cache: apt-get clean"
+  - "If a single file grows, find the writer with lsof +L1 (deleted-but-open files)"

@@ -1,0 +1,13 @@
+alertname: HostOutOfMemory
+title: "RB-003 Memory pressure"
+diagnostics:
+  - name: Memory
+    run: "free -m"
+  - name: Pressure stall info
+    run: "cat /proc/pressure/memory"
+    detect: {regex: 'some avg10=(\d+\.\d+)', threshold: 10, message: "Memory PSI avg10={value}% (>=10)"}
+  - name: Top processes by RSS
+    run: "ps -eo pid,comm,rss --sort=-rss"
+remediation:
+  - "Check for leak: RSS growth over time of the top process"
+  - "Check dmesg for OOM-killer events"
